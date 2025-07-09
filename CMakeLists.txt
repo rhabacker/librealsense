@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.8)
 set( LRS_TARGET realsense2 )
 project( ${LRS_TARGET} LANGUAGES CXX C )
 
+option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
+
 # Allow librealsense2 and all of the nested project to include the main repo folder
 set(REPO_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${REPO_ROOT})

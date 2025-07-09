@@ -17,7 +17,7 @@ set(D4XX_FW_VERSION ${CMAKE_MATCH_1})
 set(D4XX_FW_SHA1 51e37fd01132c500bb4e4af408a41f42391289a5)
 set(D4XX_FW_URL "${REALSENSE_FIRMWARE_URL}/Releases/RS4xx/FW")
 
-add_library(${PROJECT_NAME} STATIC empty.c)
+add_library(${PROJECT_NAME} empty.c)
 
 # disable link time optimization for fw by adding -fno-lto to disable -flto flag
 # jammy debian has build errors without it
