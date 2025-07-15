@@ -8,7 +8,7 @@
 #ifdef _WIN32
 
 #include <rsutils/os/hresult.h>
-#include <KnownFolders.h>
+#include <knownfolders.h>
 #include <shlobj.h>
 
 #elif defined __linux__ || defined __APPLE__

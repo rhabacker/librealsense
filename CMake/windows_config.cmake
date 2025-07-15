@@ -19,7 +19,7 @@ macro(os_set_flags)
     endif()
 
     ## Check for Windows Version ##
-    if(${CMAKE_SYSTEM_VERSION} EQUAL 6.1) # Windows 7
+    if("${CMAKE_SYSTEM_VERSION}" EQUAL 6.1) # Windows 7
         set(FORCE_RSUSB_BACKEND ON)
     endif()
 

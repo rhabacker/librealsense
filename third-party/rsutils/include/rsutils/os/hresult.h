@@ -3,7 +3,7 @@
 
 #pragma once
 #include <string>
-#include <Windows.h>
+#include <windows.h>
 #include <functional>
 #include <comdef.h>
 #include <sstream>

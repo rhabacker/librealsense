@@ -11,6 +11,7 @@
 
 #include <windows.h>
 #include <iphlpapi.h>
+#include <thread>
 #pragma comment( lib, "iphlpapi.lib" )
 
 #else
