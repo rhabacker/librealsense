@@ -58,3 +58,4 @@ option(USE_EXTERNAL_LZ4 "Use externally build LZ4 library instead of building an
 option(BUILD_ASAN "Enable AddressSanitizer" OFF)
 mark_as_advanced(BUILD_ASAN)
 option(BUILD_WITH_SYSTEM_CURL "Use system provided curl library" OFF)
+option(BUILD_WITH_SYSTEM_NLOHMANN_JSON "Use system provided nlohmann_json library" OFF)
