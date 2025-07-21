@@ -57,3 +57,4 @@ option(ENABLE_SECURITY_FLAGS "Enable additional compiler security flags to enhan
 option(USE_EXTERNAL_LZ4 "Use externally build LZ4 library instead of building and using the in this repo provided version" OFF)
 option(BUILD_ASAN "Enable AddressSanitizer" OFF)
 mark_as_advanced(BUILD_ASAN)
+option(BUILD_WITH_SYSTEM_CURL "Use system provided curl library" OFF)
