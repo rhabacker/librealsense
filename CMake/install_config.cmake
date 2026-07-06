@@ -8,6 +8,12 @@ include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${CMAKE_CURRENT_BINARY_DIR}/realsense2ConfigVersion.cmake"
     VERSION ${REALSENSE_VERSION_STRING} COMPATIBILITY AnyNewerVersion)
 
+if( USE_EXTERNAL_NLOHMANN_JSON )
+    set( REALSENSE2_NLOHMANN_JSON_DEPENDENCY "include(CMakeFindDependencyMacro)\nfind_dependency(nlohmann_json 3.12.0 REQUIRED)" )
+else()
+    set( REALSENSE2_NLOHMANN_JSON_DEPENDENCY "" )
+endif()
+
 configure_package_config_file(CMake/realsense2Config.cmake.in realsense2Config.cmake
     INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
     INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX}/bin
