@@ -46,5 +46,10 @@ function(get_nlohmann_json)
 
 endfunction()
 
-# Trigger the build
-get_nlohmann_json()
+if( USE_EXTERNAL_NLOHMANN_JSON )
+    message( STATUS "Using external nlohmann_json package" )
+    find_package( nlohmann_json ${NLOHMANN_JSON_MIN_VERSION} REQUIRED )
+else()
+    # Trigger the build
+    get_nlohmann_json()
+endif()
