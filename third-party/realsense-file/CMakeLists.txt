@@ -59,13 +59,15 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 endif()
 
 if(BUILD_ROSBAG2)
-    add_dependencies(${REALSENSE_FILE_TARGET} sqlite3_lib)
+    if(NOT USE_EXTERNAL_SQLITE3)
+        add_dependencies(${REALSENSE_FILE_TARGET} sqlite3)
+    endif()
     add_dependencies(${REALSENSE_FILE_TARGET} yaml_cpp)
 endif()
 
 target_link_libraries(${REALSENSE_FILE_TARGET} PUBLIC rs_lz4)
 if(BUILD_ROSBAG2)
-    target_link_libraries(${REALSENSE_FILE_TARGET} PRIVATE sqlite3_lib)
+    target_link_libraries(${REALSENSE_FILE_TARGET} PRIVATE sqlite3)
 endif()
 
 #set_target_properties(${REALSENSE_FILE_TARGET} PROPERTIES VERSION "${LIBVERSION}" SOVERSION "${LIBSOVERSION}")
@@ -75,8 +77,8 @@ set_target_properties (${REALSENSE_FILE_TARGET} PROPERTIES FOLDER Library)
 set(CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/../cmake/realsense2")
 
 set(_install_targets ${REALSENSE_FILE_TARGET} rs_lz4)
-if(BUILD_ROSBAG2)
-    list(APPEND _install_targets sqlite3_lib)
+if(BUILD_ROSBAG2 AND NOT USE_EXTERNAL_SQLITE3)
+    list(APPEND _install_targets sqlite3)
 endif()
 install(TARGETS ${_install_targets}
     EXPORT realsense2Targets
